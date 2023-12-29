@@ -21,7 +21,7 @@ resource "null_resource" "install" {
     }
   }
   resource "aws_ami_from_instance" "ami" {
-    depends_on = [ null_resource.install ]
+  depends_on = [ null_resource.install ]
   name               = "golden-ami"
-  source_instance_id = "aws_instance.ami.id"
+  source_instance_id = aws_instance.ami.id
 }
