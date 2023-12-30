@@ -22,6 +22,6 @@ resource "null_resource" "install" {
   }
   resource "aws_ami_from_instance" "ami" {
   depends_on = [ null_resource.install ]
-  name               = "golden-ami"
+  name               = "golden-ami-v${formatdate("MMDDYYYY",timestamp())}"
   source_instance_id = aws_instance.ami.id
 }
